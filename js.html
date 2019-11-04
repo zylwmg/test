@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="免费 Web & 编程 教程">
+<meta name="author" content="Runoob">
+<title>最小小了</title>
+
+<link rel="stylesheet" type="text/css" href="styles.css">
+<style type="text/css">
+#div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+<script>
+function displayDate(){
+	document.getElementById("demo1").innerHTML=Date();
+}
+</script>
+
+<script>
+var txt="";
+function message(){
+	try {
+		adddlert("Welcome guest!");
+	}
+	catch(err) {
+		txt="本页有一个错误。\n\n";
+		txt+="错误描述：" + err.message + "\n\n";
+		txt+="点击确定继续。\n\n";
+		alert(txt);
+	}
+}
+</script>
+<script>
+function validateForm() {
+    var x = document.forms["myForm"]["fname"].value;
+    if (x == null || x == "") {
+        alert("需要输入名字。");
+        return false;
+    }
+}
+</script>
+<script>
+function validateForm1(){
+	var x=document.forms["myForm1"]["email"].value;
+	var atpos=x.indexOf("@");
+	var dotpos=x.lastIndexOf(".");
+	if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length){
+		alert("不是一个有效的 e-mail 地址");
+  		return false;
+	}
+}
+</script>
+<script>
+function changetext(id){
+    id.innerHTML="咋了尼!";
+}
+</script>
+<script>
+function setCookie(cname,cvalue,exdays){
+	var d = new Date();
+	d.setTime(d.getTime()+(exdays*24*60*60*1000));
+	var expires = "expires="+d.toGMTString();
+	document.cookie = cname+"="+cvalue+"; "+expires;
+}
+function getCookie(cname){
+	var name = cname + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0; i<ca.length; i++) {
+		var c = ca[i].trim();
+		if (c.indexOf(name)==0) { return c.substring(name.length,c.length); }
+	}
+	return "";
+}
+function checkCookie(){
+	var user=getCookie("username");
+	if (user!=""){
+		alert("欢迎 " + user + " 再次访问");
+	}
+	else {
+		user = prompt("请输入你的名字:","");
+  		if (user!="" && user!=null){
+    		setCookie("username",user,30);
+    	}
+	}
+}
+</script>
+</head>
+
+
+<body onload="checkCookie()" >	
+<input type="button" value="查看消息" onclick="message()" />
+
+<p>JavaScript 能够直接写入 HTML 输出流中：</p>
+<script>
+// 输出标题：
+document.write("<h3>这是一个标题</h3>");     //注释
+// 输出段落：
+//document.write("<p>这是一个段落。</p>");
+</script>
+<p>
+您只能在 HTML 输出流中使用 <strong>document.write</strong>。
+如果您在文档已加载后使用它（比如在函数中），会覆盖整个文档。
+</p>
+
+<h2>我的第一个 Web 页面</h2>
+<p id="demo">我的第一个段落。</p>
+<script>
+document.getElementById("demo").innerHTML="段落已修改。";
+</script>
+
+
+<p id="myPar">我是一个段落。</p>
+<div id="myDiv">我是一个div。</div>
+<p>
+<button type="button" onclick="myFunction0()">点击这里</button>
+</p>
+<script>
+function myFunction0(){
+	document.getElementById("myPar").innerHTML="你好世界！";
+	document.getElementById("myDiv").innerHTML="你最近怎么样?";
+}
+</script>
+<p>当您点击上面的按钮时，两个元素会改变。</p>
+
+<script>
+<!--window.alert(5 + 6); -->
+</script>
+
+<script>
+document.write(Date());
+</script>
+
+<p>
+浏览器中(Chrome, IE, Firefox) 使用 F12 来启用调试模式， 在调试窗口中点击 "Console" 菜单。
+</p>
+<script>
+a = 5;
+b = 6;
+c = a + b;
+console.log(c);
+</script>
+
+<h1>我的第一个 JavaScript 程序</h1>
+<p id="demo1">这是一个段落</p>
+<button type="button" onclick="displayDate()">显示日期</button>
+
+<p>
+JavaScript 能够对事件作出反应。比如对按钮的点击：
+</p>
+<button type="button" onclick="alert('小人')">点我</button>
+
+<p id="demo2">
+JavaScript 能改变 HTML 元素的内容。
+</p>
+<script>
+function myFunction()
+{
+	x=document.getElementById("demo2");  // 找到元素
+	x.innerHTML="小小晕乎乎";    // 改变内容
+}
+</script>
+<button type="button" onclick="myFunction()">点击这里</button><br />
+
+<script>
+function changeImage()
+{
+	element=document.getElementById('myimage')
+	if (element.src.match("bulbon"))
+	{
+		element.src="image/pic_bulboff.gif";
+	}
+	else
+	{
+		element.src="image/pic_bulbon.gif";
+	}
+}
+</script>
+<img id="myimage" onclick="changeImage()" src="image/pic_bulboff.gif" width="100" height="180">
+<p>点击灯泡就可以打开或关闭这盏灯</p><br />
+
+<p id="demo3">
+JavaScript 能改变 HTML 元素的样式。
+</p>
+<script>
+function myFunction1()
+{
+	x=document.getElementById("demo3") // 找到元素
+	x.style.color="#ff0000";          // 改变样式
+}
+</script>
+<button type="button" onclick="myFunction1()">点击这里</button><br />
+
+<p>请输入数字。如果输入值不是数字，浏览器会弹出提示框。</p>
+<input id="demo4" type="text">
+<script>
+function myFunction2()
+{
+	var x=document.getElementById("demo4").value;
+	if(isNaN(x)||x.replace(/(^\s*)|(\s*$)/g,"")==""){
+		alert("不是数字");
+	}
+}
+</script>
+<button type="button" onclick="myFunction2()">点击这里</button><br />
+
+<p id="demo5">一个段落。</p>
+<script src="js/myScript.js"></script>
+<button type="button" onclick="myFunction3()">点击这里</button>
+<p><b>注释：</b>myFunction3 保存在名为 "myScript.js" 的外部文件中。</p>
+
+<img src="image/image1.jpg" width="240" height="320" /><br />
+
+<audio controls >
+  <source src="audio/music1.mp3" type="audio/mpeg">
+  <source src="audio/music1.ogg" type="audio/ogg">
+  <embed height="50" width="100" src="audio/music1.mp3">
+</audio><br>
+
+<video width="320" height="240" controls >
+  <source src="video/video1.ogg" type="video/ogg">
+  <source src="video/video1.mp4" type="video/mp4">
+  <source src="video/video1.webm" type="video/webm">
+  <object data="video/video1.mp4" width="320" height="240">
+    <embed width="320" height="240" src="video/video1.swf">
+  </object>
+</video><br>
+
+<p id="demo6"></p>
+<script>
+var x, y, z;                    // 我不会执行
+x = 5;
+y = 6;
+z = (x + y) * 10;
+document.getElementById("demo6").innerHTML = z;
+</script>
+
+<script>
+var x=5;
+var y=6;
+var z=x+y;
+document.write(x + "<br>");
+document.write(y + "<br>");
+document.write(z + "<br>");
+</script>
+
+<script>
+var pi=3.14;
+var name="Bill Gates";
+var answer='Yes I am!';
+document.write(pi + "<br>");
+document.write(name + "<br>");
+document.write(answer + "<br>");
+</script>
+
+<p>点击这里来创建变量，并显示结果。</p>
+<p id="demo7"></p>
+<script>
+function myFunction4(){
+	var carname="Volvo";
+	document.getElementById("demo7").innerHTML=carname;
+}
+</script>
+<button onclick="myFunction4()">点击这里</button>
+
+<script>
+var carname=new String;
+var x=      new Number;
+var y=      new Boolean;
+var cars=   new Array;
+var person= new Object;
+</script>
+
+<p>创建 JavaScript 对象。</p>
+<p id="demo8"></p>
+<p id="demo9"></p>
+<p id="demo10"></p>
+<p id="demo11"></p>
+<script>
+var person = {
+    firstName : "John",
+    lastName  : "Doe",
+    age       : 50,
+    eyeColor  : "blue",
+	fullName : function() 
+	{
+       return this.firstName + " " + this.lastName;
+    }
+};
+document.getElementById("demo8").innerHTML =
+	person.firstName + " 现在 " + person.age + " 岁。";
+document.getElementById("demo9").innerHTML =
+	person["firstName"] + " " + person["lastName"];
+document.getElementById("demo10").innerHTML = "不加括号输出函数表达式："  + person.fullName;
+document.getElementById("demo11").innerHTML = "加括号输出函数执行结果："  +  person.fullName();
+</script>
+
+<p>本例调用的函数会执行一个计算，然后返回结果：</p>
+<p id="demo12"></p>
+<script>
+function myFunction5(a,b){
+    return a*b;
+}
+document.getElementById("demo12").innerHTML=myFunction5(4,3);
+</script>
+
+<p>全局变量在任何脚本和函数内均可访问。</p>
+<p id="demo13"></p>
+<script>
+var xiao = "Volvo";
+myFunction6();
+function myFunction6() 
+{
+    document.getElementById("demo13").innerHTML =
+		"我可以显示 " + xiao;
+}
+</script>
+
+<p>
+如果你的变量没有声明，它将自动成为全局变量：
+</p>
+<p id="demo14"></p>
+<script>
+myFunction7();
+document.getElementById("demo14").innerHTML =
+	"我可以显示 " + xiao1;
+function myFunction7() 
+{
+    xiao1 = "小样子";
+}
+</script>
+
+<p id="demo15"></p>
+<script>
+var x = "John";              // x是一个字符串
+var y = new String("John");  // y是一个对象
+document.getElementById("demo15").innerHTML =typeof x + " " + typeof y;
+</script>
+
+<p>点击按钮创建及增加字符串变量。</p>
+<p id="demo16"></p>
+<script>
+function myFunction8()
+{
+	txt1="What a very";
+	txt2="nice day";
+	txt3=txt1+" "+txt2;
+	document.getElementById("demo16").innerHTML=txt3;
+}
+</script>
+<button onclick="myFunction8()">点击这里</button>
+
+<p>点击按钮创建及增加字符串变量。</p>
+<p id="demo17"></p>
+<script>
+function myFunction9()
+{
+	var x=5+5;
+	var y="5"+5;
+	var z="Hello"+5;
+	var demoP=document.getElementById("demo17");
+	demoP.innerHTML=x + "<br>" + y + "<br>" + z;
+}
+</script>
+<button onclick="myFunction9()">点击这里</button>
+
+<p>点击这个按钮，获得基于时间的问候。</p>
+<p id="demo18"></p>
+<script>
+function myFunction10(){
+	var x="";
+	var time=new Date().getHours();
+	if (time<20){
+	 	x="Good day";
+     }
+	else{
+ 		x="Good evening";
+ 	}
+	document.getElementById("demo18").innerHTML=x;
+}
+</script>
+<button onclick="myFunction10()">点击这里</button><br>
+
+<script type="text/javascript">
+var d = new Date();
+var time = d.getHours();
+if (time<10)
+{
+	document.write("<b>早上好</b>");
+}
+else if (time>=10 && time<16)
+{
+	document.write("<b>今天好</b>");
+}
+else
+{
+	document.write("<b>晚上好!</b>");
+}
+</script>
+<p>
+这个例子演示了 if..else if...else 语句。
+</p>
+
+<script>
+cars=["BMW","Volvo","Saab","Ford"];
+for (var i=0;i<cars.length;i++){
+	document.write(cars[i] + "<br>");
+}
+</script>
+
+<p>点击下面的按钮，循环遍历对象 "person" 的属性。</p>
+<p id="demo19"></p>
+<script>
+function myFunction11(){
+	var x;
+	var txt="";
+	var person={fname:"Bill",lname:"Gates",age:56}; 
+	for (x in person){
+		txt=txt + person[x];
+	}
+	document.getElementById("demo19").innerHTML=txt;
+}
+</script>
+<button onclick="myFunction11()">点击这里</button>
+
+<p>点击下面的按钮，只要 i 小于 5 就一直循环代码块。</p>
+<p id="demo20"></p>
+<script>
+function myFunction12(){
+	var x="",i=0;
+	do{
+		x=x + "该数字为 " + i + "<br>";
+	    i++;
+	}
+	while (i<5)  
+	document.getElementById("demo20").innerHTML=x;
+}
+</script>
+<button onclick="myFunction12()">点击这里</button>
+
+<p>点击下面的按钮来执行循环，该循环会跳过 i=3 的步进。</p>
+<p id="demo21"></p>
+<script>
+function myFunction13(){
+	var x="",i=0;
+	for (i=0;i<10;i++){
+  		if (i==3){
+    		continue;
+    	}
+		x=x + "该数字为 " + i + "<br>";
+  	}
+	document.getElementById("demo21").innerHTML=x;
+}
+</script>
+<button onclick="myFunction13()">点击这里</button>
+
+<p> typeof 操作符返回变量、对象、函数、表达式的类型。</p>
+<p id="demo22"></p>
+<script>
+document.getElementById("demo22").innerHTML = 
+    typeof "john" + "<br>" +
+    typeof 3.14 + "<br>" +
+    typeof NaN + "<br>" +
+    typeof false + "<br>" +
+    typeof [1,2,3,4] + "<br>" +
+    typeof {name:'john', age:34} + "<br>" +
+    typeof new Date() + "<br>" +
+    typeof function () {} + "<br>" +
+    typeof myCar + "<br>" +
+    typeof null + "<br>" +
+	"john".constructor + "<br>" +
+    (3.14).constructor + "<br>" +
+    false.constructor + "<br>" +
+    [1,2,3,4].constructor + "<br>" +
+    {name:'john', age:34}.constructor + "<br>" +
+    new Date().constructor + "<br>" +
+    function () {}.constructor;
+</script>
+
+<p> String() 方法可以将数字转换为字符串。</p>
+<p id="demo23"></p>
+<script>
+var x = 123;
+document.getElementById("demo23").innerHTML =
+    String(x) + "<br>" +
+    String(123) + "<br>" +
+    String(100 + 23) + "<br>" +
+	    x.toString() + "<br>" +
+   (123).toString() + "<br>" +
+   (100 + 23).toString() + "<br>" +
+   false.toString() + "<br>" +     // 返回 "false"
+   true.toString() ;     // 返回 "true"
+</script>
+
+<p>搜索字符串 "runoob", 并显示匹配的起始位置：</p>
+<p id="demo24"></p>
+<script>
+function myFunction14() {
+    var str = "Visit Runoob!"; 
+  //  var n = str.search(/Runoob/i);
+	var n = str.search("Runoob");
+    document.getElementById("demo24").innerHTML = n;
+}
+</script>
+<button onclick="myFunction14()">点我</button>
+
+<script>
+var patt1=new RegExp("e");
+document.write(patt1.test("The best things in life are free"));
+</script>
+
+<p>请输出一个 5 到 10 之间的数字:</p>
+<input id="demo25" type="text">
+<p id="message1"></p>
+<script>
+function myFunction15() {  
+    var message, x;
+    message = document.getElementById("message1");
+    message.innerHTML = "";
+    x = document.getElementById("demo25").value;
+    try { 
+        if(x == "")  throw "值为空";
+        if(isNaN(x)) throw "不是数字";
+        x = Number(x);
+        if(x < 5)    throw "太小";
+        if(x > 10)   throw "太大";  
+    }
+    catch(err) {
+        message.innerHTML = "错误: " + err;     
+    }
+}
+</script>
+<button type="button" onclick="myFunction15()">测试输入</button>
+
+<p>
+浏览器中(Chrome, IE, Firefox) 使用 F12 来启用调试模式， 在调试窗口中点击 "Console" 菜单。<br />
+如果浏览器支持调试，你可以使用 console.log() 方法在调试窗口上打印 JavaScript 值：
+</p>
+<script>
+a = 5;    
+b = 6; 
+c = a + b;
+console.log(c);
+</script>
+
+<form name="myForm" action="demo_form.php"
+onsubmit="return validateForm()" method="post">
+名字: <input type="text" name="fname">
+<input type="submit" value="提交">
+</form>
+
+<form name="myForm1" action="demo-form.php" onsubmit="return validateForm1();" method="post">
+Email: <input type="text" name="email">
+<input type="submit" value="提交">
+</form>
+
+<p>请输入 1 到 10 之间的数字：</p>
+<input id="numb">
+<p id="demo26"></p>
+<script>
+function myFunction16() {
+    var x, text;
+
+    // 获取 id="numb" 的值
+    x = document.getElementById("numb").value;
+
+    // 如果输入的值 x 不是数字或者小于 1 或者大于 10，则提示错误 Not a Number or less than one or greater than 10
+    if (isNaN(x) || x < 1 || x > 10) {
+        text = "输入错误";
+    } else {
+        text = "输入正确";
+    }
+    document.getElementById("demo26").innerHTML = text;
+}
+</script>
+<button type="button" onclick="myFunction16()">提交</button>
+
+<form action="demo_form.php" method="post">
+  <input type="text" name="fname" required="required">
+  <input type="submit" value="提交">
+</form>
+<p>点击提交按钮，如果输入框是空的，浏览器会提示错误信息。</p>
+
+<p>输入数字并点击验证按钮:</p>
+<input id="id1" type="number" min="100" max="300" required>
+<p>如果输入的数字小于 100 或大于300，会提示错误信息。</p>
+<p id="demo27"></p>
+<script>
+function myFunction17() {
+    var inpObj = document.getElementById("id1");
+    if (inpObj.checkValidity() == false) {
+        document.getElementById("demo27").innerHTML = inpObj.validationMessage;
+    } else {
+        document.getElementById("demo27").innerHTML = "输入正确";
+    }
+}
+</script>
+<button onclick="myFunction17()">验证</button>
+
+<p>输入数字并点击验证按钮:</p>
+<input id="id2" type="number" min="100" required>
+<p>如果输入的数字小于 100 ( input 的 min 属性), 会显示错误信息。</p>
+<p id="demo28"></p>
+<script>
+function myFunction18() {
+    var txt = "";
+	var inpObj = document.getElementById("id2");
+	if(!isNumeric(inpObj.value)) {
+		txt = "你输入的不是数字";
+	} else if (inpObj.validity.rangeUnderflow) {
+        txt = "输入的值太小了";
+    } else {
+        txt = "输入正确";
+    }
+    document.getElementById("demo28").innerHTML = txt;
+}
+
+// 判断输入是否为数字
+function isNumeric(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+</script>
+<button onclick="myFunction18()">验证</button>
+
+<h2>JavaScript <b>this</b> 关键字</h2>
+<p>实例中，<b>this</b> 指向了 <b>person</b> 对象。</p>
+<p>因为 person 对象是 fullName 方法的所有者。</p>
+<p id="demo29"></p>
+<script>
+// 创建一个对象
+var person = {
+  firstName: "John",
+  lastName : "Doe",
+  id     : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+};
+// 显示对象的数据
+document.getElementById("demo29").innerHTML = person.fullName();
+</script>
+
+<p>实例中，<b>this</b> 指向了 window 对象:</p>
+
+<p id="demo30"></p>
+<script>
+var x = this;
+document.getElementById("demo30").innerHTML = x;
+</script>
+
+<p id="demo31"></p>
+<script>
+document.getElementById("demo31").innerHTML = myFunction();
+function myFunction() {
+  return this;
+}
+</script>
+​
+<button onclick="this.style.display='none'">点我后我就消失了</button>
+
+<h2>JavaScript this 关键字</h2>
+<p>实例中 <strong>this</strong> 指向了 person2，即便它是 person1 的方法:</p>
+<p id="demo32"></p>
+<script>
+var person1 = {
+  fullName: function() {
+    return this.firstName + " " + this.lastName;
+  }
+}
+var person2 = {
+  firstName:"little",
+  lastName: "小小",
+}
+var x = person1.fullName.call(person2); 
+document.getElementById("demo32").innerHTML = x; 
+</script>
+
+<p>const 用于声明一个或多个常量，声明时必须进行初始化，且初始化后值不可再修改。</p>
+<p id="demo33"></p>
+<script>
+try {
+    const PI = 3.141592653589793;
+    PI = 3.14;
+}
+catch (err) {
+    document.getElementById("demo33").innerHTML = err;
+}
+</script>
+
+<p>以下实例修改常量数组:</p>
+<p id="demo34"></p>
+<script>
+// 创建常量数组
+const cars1 = ["Saab", "Volvo", "BMW"];
+ 
+// 修改元素
+cars1[0] = "Toyota";
+ 
+// 添加元素
+cars1.push("Audi");
+
+// 显示数组
+document.getElementById("demo34").innerHTML = cars1; 
+</script>
+
+<h2>为 JSON 字符串创建对象</h2>
+<p id="demo35"></p>
+<script>
+var text = '{ "sites" : [' +
+	'{ "name":"Runoob" , "url":"www.runoob.com" },' +
+	'{ "name":"Google" , "url":"www.google.com" },' +
+	'{ "name":"Taobao" , "url":"www.taobao.com" } ]}';
+	
+obj = JSON.parse(text);
+document.getElementById("demo35").innerHTML = obj.sites[1].name + " " + obj.sites[1].url;
+</script>
+
+<a href="javascript:void(0)">单此处什么也不会发生</a>
+<p>点击以下链接查看结果：</p>
+<a href="javascript:void(alert('Warning!!!'))">点我!</a><br />
+
+<a href="javascript:void(0);">点我没有反应的!</a>
+<a href="#pos">点我定位到指定位置!</a>
+<br>
+...
+<br>
+<p id="pos">尾部定位点</p>
+
+<p>函数可作为一个值：</p>
+<p>x = myFunction(4,3) 或 x = 12</p>
+<p>两种情况下，x 的值都为 12。</p>
+<p id="demo36"></p>
+<script>
+function myFunction19(a, b) {
+    return a * b;
+}
+var x = myFunction19(4, 3);
+document.getElementById("demo36").innerHTML = x;
+</script>
+
+<p>全局函数 myFunction() 会自动成为 window 对象的方法。</p>
+<p>myFunction() 类似于 window.myFunction()。</p>
+<p id="demo37"></p>
+<script>
+function myFunction20(a, b) {
+	return a * b;
+}
+document.getElementById("demo37").innerHTML = window.myFunction20(10, 2); 
+</script>
+
+<p>myObject.fullName() 返回 John Doe:</p>
+<p id="demo38"></p>
+<script>
+var myObject = {
+    firstName:"John",
+    lastName: "Doe",
+    fullName: function() {
+		return this.firstName + " " + this.lastName;
+    }
+}
+document.getElementById("demo38").innerHTML = myObject.fullName(); 
+</script>
+
+<p>局部变量计数。</p>
+<p id="demo39">0</p>
+<script>
+document.getElementById("demo39").innerHTML = add();
+function add() {
+	var counter = 0;
+    function plus() {counter += 1;}
+    plus();    
+    return counter; 
+}
+</script>
+
+<p>你好世界!</p>
+<div id="main">
+<p> DOM 是非常有用的。</p>
+<p>该实例展示了  <b>getElementsByTagName</b> 方法</p>
+</div>
+<script>
+var x=document.getElementById("main");
+var y=x.getElementsByTagName("p");
+document.write('id="main"元素中的第一个段落为：' + y[0].innerHTML);
+</script>
+
+<p class="intro">你好世界!</p>
+<p>该实例展示了 <b>getElementsByClassName</b> 方法!</p>
+<script>
+x=document.getElementsByClassName("intro");
+document.write("<p>文本来自 class 为 intro 段落: " + x[0].innerHTML + "</p>");
+</script>
+
+<p>你好世界!</p>
+<div id="main1">
+<p> DOM 是非常有用的。</p>
+<p>该实例展示了  <b>getElementsByTagName</b> 方法</p>
+</div>
+<script>
+var x=document.getElementById("main1");
+var y=x.getElementsByTagName("p");
+document.write('id="main"元素中的第一个段落为：' + y[0].innerHTML);
+</script>
+
+<h1 id="header1">旧标题</h1>
+<script>
+var element=document.getElementById("header1");
+element.innerHTML="新标题";
+</script>
+<p>"旧标题" 被 "新标题" 取代。</p>
+
+<img id="image" src="image/image1.jpg" width="160" height="120">
+<script>
+document.getElementById("image").src="image/image2.jpg";
+</script>
+<p>原图片为 image1.jpg,脚本将图片修改为image2.jpg</p>
+
+<p id="p1">Hello World!</p>
+<p id="p2">Hello World!</p>
+<script>
+document.getElementById("p2").style.color="blue";
+document.getElementById("p2").style.fontFamily="Arial";
+document.getElementById("p2").style.fontSize="larger";
+</script>
+<p>以上段落通过脚本修改。</p>
+
+<h1 id="id10">我的标题 1</h1>
+<button type="button" onclick="document.getElementById('id10').style.color='red'">
+点我!</button>
+
+<h1 onclick="this.innerHTML='Ooops!'">点击文本!</h1>
+<h1 onclick="changetext(this)">点击文本!</h1>
+
+输入你的名字: <input type="text" id="fname" onchange="myFunction21()">
+<p>当你离开输入框后，函数将被触发，将小写字母转为大写字母。</p>
+<script>
+function myFunction21(){
+	var x=document.getElementById("fname");
+	x.value=x.value.toUpperCase();
+}
+</script>
+
+<div onmouseover="mOver(this)" onmouseout="mOut(this)" style="background-color:#D94A38;width:120px;height:20px;padding:40px;">Mouse Over Me</div>
+<script>
+function mOver(obj){
+	obj.innerHTML="Thank You"
+}
+function mOut(obj){
+	obj.innerHTML="Mouse Over Me"
+}
+</script>
+
+<img id="myimage1" onmousedown="lighton()" onmouseup="lightoff()" src="image/pic_bulboff.gif" width="100" height="180" />
+<p>点击不释放鼠标灯将一直亮着!</p>
+<script>
+function lighton(){
+	document.getElementById('myimage1').src="image/pic_bulbon.gif";
+}
+function lightoff(){
+	document.getElementById('myimage1').src="image/pic_bulboff.gif";
+}
+</script>
+
+输入你的名字: <input type="text" onfocus="myFunction22(this)">
+<p>当输入框获取焦点时，修改背景色（background-color属性） 将被触发。</p>
+<script>
+function myFunction22(x){
+    x.style.background="yellow";
+}
+</script>
+
+<h1 onmouseover="style.color='red'"onmouseout="style.color='black'">将鼠标移至文部上</h1>
+
+<p>该实例使用 addEventListener() 方法在按钮中添加点击事件。 </p>
+<p id="demo41"></p>
+<button id="myBtn1">点我</button>
+<script>
+document.getElementById("myBtn1").addEventListener("click", displayDate10);
+function displayDate10() {
+    document.getElementById("demo41").innerHTML = Date();
+}
+</script>
+
+<p>该实例使用 addEventListener() 方法在按钮中添加点击事件。 </p>
+<button id="myBtn2">点我</button>
+<script>
+document.getElementById("myBtn2").addEventListener("click", myFunction23);
+function myFunction23() {
+    alert ("Hello World!");
+}
+</script>
+
+<p>该实例使用 addEventListener() 方法向同个按钮中添加两个点击事件。</p>
+<button id="myBtn3">点我</button>
+<script>
+var x = document.getElementById("myBtn3");
+x.addEventListener("click", myFunction24);
+x.addEventListener("click", someOtherFunction);
+function myFunction24() {
+    alert ("Hello World!")
+}
+function someOtherFunction() {
+    alert ("函数已执行!")
+}
+</script>
+
+<p>实例使用 addEventListener() 方法在同一个按钮中添加多个事件。</p>
+<button id="myBtn4">点我</button>
+<p id="demo42"></p>
+<script>
+var x = document.getElementById("myBtn4");
+x.addEventListener("mouseover", myFunction25);
+x.addEventListener("click", mySecondFunction);
+x.addEventListener("mouseout", myThirdFunction);
+function myFunction25() {
+    document.getElementById("demo42").innerHTML += "Moused over!<br>"
+}
+function mySecondFunction() {
+    document.getElementById("demo42").innerHTML += "Clicked!<br>"
+}
+function myThirdFunction() {
+    document.getElementById("demo42").innerHTML += "Moused out!<br>"
+}
+</script>
+​
+<p>实例在 window 对象中使用 addEventListener() 方法。</p>
+<p>尝试重置浏览器的窗口触发 "resize" 事件句柄。</p>
+<p id="demo43"></p>
+<script>
+window.addEventListener("resize", function(){
+    document.getElementById("demo43").innerHTML = Math.random();
+});
+</script>
+
+<div id="div10">
+<p id="p1">这是一个段落。</p>
+<p id="p2">这是另外一个段落。</p>
+</div>
+<script>
+var para = document.createElement("p");
+var node = document.createTextNode("这是一个新的段落。");
+para.appendChild(node);
+ 
+var element = document.getElementById("div10");
+element.appendChild(para);
+</script>
+
+<h2>JavaScript HTML DOM</h2>
+<p>Hello World!</p>
+<p>Hello Runoob!</p>
+<p id="demo44"></p>
+<script>
+var myCollection = document.getElementsByTagName("p");
+document.getElementById("demo").innerHTML = "第二个段落的内容为:<span style='color:red;'> " + myCollection[1].innerHTML + '</span>';
+</script>
+
+<h2>JavaScript HTML DOM</h2>
+<p>Hello World!</p>
+<p>Hello Runoob!</p>
+<p>点击按钮修改 p 元素的背景颜色。</p>
+<button onclick="myFunction26()">点我</button>
+<script>
+function myFunction26() {
+    var myCollection = document.getElementsByTagName("p");
+    var i;
+    for (i = 0; i < myCollection.length; i++) {
+        myCollection[i].style.color = "red";
+    }
+}
+</script>
+
+<p id="demo45"></p>
+<script>
+var w=window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+var h=window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+x=document.getElementById("demo45");
+x.innerHTML="浏览器window宽度: " + w + ", 高度: " + h + "。"
+</script>
+
+<script>
+document.write("可用宽度: " + screen.availWidth);
+document.write("可用高度: " + screen.availHeight);
+</script><br />
+
+<script>
+document.write(location.href);
+</script><br />
+
+<script>
+document.write(location.pathname);
+</script><br />
+
+<input type="button" value="加载新文档" onclick="newDoc()">
+<script>
+function newDoc(){
+	window.location.assign("https://www.csdn.net/")
+}
+</script><br />
+
+<input type="button" value="Back" onclick="goBack()">
+<script>
+    function goBack()
+    {
+        window.history.back()
+    }
+</script>
+
+<input type="button" value="Forward" onclick="goForward()">
+<script>
+function goForward()
+{
+    window.history.forward()
+}
+</script>
+
+	
+<div id="example"></div>
+<script>
+txt = "<p>浏览器代号: " + navigator.appCodeName + "</p>";
+txt+= "<p>浏览器名称: " + navigator.appName + "</p>";
+txt+= "<p>浏览器版本: " + navigator.appVersion + "</p>";
+txt+= "<p>启用Cookies: " + navigator.cookieEnabled + "</p>";
+txt+= "<p>硬件平台: " + navigator.platform + "</p>";
+txt+= "<p>用户代理: " + navigator.userAgent + "</p>";
+txt+= "<p>用户代理语言: " + navigator.systemLanguage + "</p>";
+document.getElementById("example").innerHTML=txt;
+</script>
+
+<input type="button" onclick="myFunction27()" value="显示警告框" />
+<script>
+function myFunction27(){
+	alert("你好，我是一个警告框！");
+}
+</script>
+
+<p>点击按钮，显示确认框。</p>
+<p id="demo46"></p>
+<script>
+function myFunction28(){
+    var x;
+    var r=confirm("按下按钮!");
+    if (r==true){
+        x="你按下了\"确定\"按钮!";
+    }
+    else{
+        x="你按下了\"取消\"按钮!";
+    }
+    document.getElementById("demo46").innerHTML=x;
+}
+</script>
+<button onclick="myFunction28()">点我</button>
+
+<p>点击按钮查看输入的对话框。</p>
+<p id="demo47"></p>
+<script>
+function myFunction29(){
+    var x;
+    var person=prompt("请输入你的名字","Harry Potter");
+    if (person!=null && person!=""){
+        x="你好 " + person + "! 今天感觉如何?";
+        document.getElementById("demo47").innerHTML=x;
+    }
+}
+</script>
+<button onclick="myFunction29()">点我</button>
+
+<p>单击按钮每3秒出现一个“Hello”警告框。</p>
+<p>再次点击警告框，经过3秒出现新的警告框，这将一直执行 ...</p>
+<button onclick="myFunction30()">点我</button>
+<script>
+function myFunction30(){
+	setInterval(function(){alert("Hello")},3000);      //3000=3000毫秒=3秒
+}
+</script>
+
+<p>在页面显示一个时钟</p>
+<p id="demo48"></p>
+<button onclick="myStopFunction()">停止</button>
+<script>
+var myVar=setInterval(function(){myTimer()},1000);
+function myTimer(){
+    var d=new Date();
+    var t=d.toLocaleTimeString();
+    document.getElementById("demo48").innerHTML=t;
+}
+function myStopFunction(){
+	clearInterval(myVar);
+}
+</script>
+
+<p>点击按钮，在等待 3 秒后弹出 "Hello"。</p>
+<button onclick="myFunction31()">点我</button>
+<button onclick="myStopFunction1()">停止弹框</button>
+<script>
+var myVar1=setTimeout("javascript function",milliseconds);;
+function myFunction31(){
+	setTimeout(function(){alert("Hello")},3000);
+}
+function myStopFunction1(){
+	clearTimeout(myVar1);
+}
+</script>
+
+<form>
+<input type="button" value="显示文本时间!" onclick="timedText()" />
+<input type="text" id="txt" />
+</form>
+<p>点击上面的按钮，输出的文本将告诉你2秒，4秒，6秒已经过去了。</p>
+<script>
+function timedText(){
+    var x=document.getElementById('txt');
+    var t1=setTimeout(function(){x.value="2 秒"},2000);
+    var t2=setTimeout(function(){x.value="4 秒"},4000);
+    var t3=setTimeout(function(){x.value="6 秒"},6000);
+}
+</script>
+
+</body>  
+</html>

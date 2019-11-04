@@ -1,0 +1,538 @@
+
+<!DOCTYPE html>
+<html manifest="demo.appcache" >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="description" content="免费 Web & 编程 教程">
+<meta name="author" content="Runoob">
+<title>还不是好小小</title>
+<base href="http://www.runoob.com/" target="_blank">
+<link rel="stylesheet" type="text/css" href="styles.css">
+<style type="text/css">
+h1 {color:red;}
+p {color:blue;}
+</style>
+<style type="text/css">
+#div1 {width:350px;height:70px;padding:10px;border:1px solid #aaaaaa;}
+</style>
+<script>
+function allowDrop(ev)
+{
+	ev.preventDefault();
+}
+
+function drag(ev)
+{
+	ev.dataTransfer.setData("Text",ev.target.id);
+}
+
+function drop(ev)
+{
+	ev.preventDefault();
+	var data=ev.dataTransfer.getData("Text");
+	ev.target.appendChild(document.getElementById(data));
+}
+</script>
+<script>
+function clickCounter()
+{
+    if(typeof(Storage)!=="undefined")
+    {
+        if (sessionStorage.clickcount)
+        {
+            sessionStorage.clickcount=Number(sessionStorage.clickcount)+1;
+        }
+        else
+        {
+            sessionStorage.clickcount=1;
+        }
+        document.getElementById("result").innerHTML="在这个会话中你已经点击了该按钮 " + sessionStorage.clickcount + " 次 ";
+    }
+    else
+    {
+        document.getElementById("result").innerHTML="抱歉，您的浏览器不支持 web 存储";
+    }
+}
+</script>
+      <script type="text/javascript">
+        
+         var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
+         var msg;
+            
+         db.transaction(function (tx) {
+            tx.executeSql('CREATE TABLE IF NOT EXISTS LOGS (id unique, log)');
+            tx.executeSql('INSERT INTO LOGS (id, log) VALUES (1, "菜鸟教程")');
+            tx.executeSql('INSERT INTO LOGS (id, log) VALUES (2, "www.runoob.com")');
+            msg = '<p>数据表已创建，且插入了两条数据。</p>';
+            document.querySelector('#status').innerHTML =  msg;
+         });
+​
+         db.transaction(function (tx) {
+            tx.executeSql('SELECT * FROM LOGS', [], function (tx, results) {
+               var len = results.rows.length, i;
+               msg = "<p>查询记录条数: " + len + "</p>";
+               document.querySelector('#status').innerHTML +=  msg;
+                    
+               for (i = 0; i < len; i++){
+                  msg = "<p><b>" + results.rows.item(i).log + "</b></p>";
+                  document.querySelector('#status').innerHTML +=  msg;
+               }
+            }, null);
+         });
+            
+      </script>
+</head>
+
+<body style="background-color:white">
+<h1 style="background-color:red">My First Heading</h1>
+<h1>我使用了外部样式文件来格式化文本 </h1>
+<p style="background-color:white">小妈咪<br />小样子<br />好小小</p>
+
+<h2 style="background-color:yellow">My Scencd Heading</h2>
+<p style="background-color:white">希小希<br />小东东<br />有小窝窝</p>
+
+<h1 style="font-family:verdana;">一个标题</h1>
+<p style="font-family:arial;color:red;font-size:20px;">一个段落。</p>
+
+<H1>希小希的个人主页</H1><H2>欢迎</H2><hr>
+<P>欢迎来我的寒舍，虽然这里现在暂时还没有什么。</P>
+<P>不过我希望马上就可以多起来。</P><hr>
+<P ALIGN="CENTER"><SMALL> <I>Copyright ? 我自己，1999</I> </SMALL></P>
+
+<H2>联系信息</H2>
+<font size="2">这是2号字体文本</font>
+<P>你可以通过1-800-PHP-INFO联系我</P><hr>
+<P ALIGN="CENTER"><SMALL> <I>Copyright ? 我自己，1999</I> </SMALL></P>
+<!-- 这是一个注释 -->
+
+<H3>第三个标题</H3>
+<P><b><I><ins>第三个段落</b></I></ins></P>
+<a href="https://fanyi.baidu.com/?aldtype=16047#auto/zh" target="_blank" >百度翻译链接</a><br />
+<img src="logo.png"> <br />
+<a id="tips">有用的提示部分</a><br />
+<img src="image/icon.png" width="52" height="52" />
+<h2>Norwegian Mountain Trip</h2>
+<img border="0" src="/images/pulpit.jpg" alt="Pulpit rock" width="304" height="228">
+<hr>
+<!-- 这是第二个注释 -->
+
+<H4 id="my">第四个标题</H4>
+<P>知道不小样子</P>
+<p>创建图片链接:
+<a href="http://www.runoob.com/html/html-tutorial.html">
+<img  border="10" src="smiley.gif" alt="HTML 教程" width="32" height="32"></a></p>
+<p>
+这是一个电子邮件链接：
+<a href="mailto:zhangrr601@163.com?cc=someone@163.com&bcc=somebody@163.com" rel="nofollow">发送邮件</a>
+</p>
+<P>第四个段落</P><hr>
+
+<table border="1" cellpadding="10" cellspacing="10" >
+<caption>小东东</caption>
+    <tr>
+        <th>Header 1</th>
+        <th>Header 2</th>
+    </tr>
+    <tr>
+        <td>row 1, cell 1</td>
+        <td>row 1, cell 2</td>
+    </tr>
+    <tr>
+        <td>row 2, cell 1</td>
+        <td>row 2, cell 2</td>
+    </tr>
+<tr>
+  <td>这个单元格包含一个列表
+   <ul>
+    <li>apples</li>
+    <li>bananas</li>
+    <li>pineapples</li>
+   </ul>
+  </td>
+  <td>HELLO</td>
+</tr>
+</table>
+
+<ul>
+<li>Coffee</li>
+<li>Milk</li>
+</ul>
+
+<ol>
+<li>Coffee</li>
+<li>Milk</li>
+</ol>
+
+<dl>
+<dt>Coffee</dt>
+<dd>- black hot drink</dd>
+<dt>Milk</dt>
+<dd>- white cold drink</dd>
+</dl>
+
+<h4>嵌套列表：</h4>
+<ul>
+  <li>Coffee</li>
+  <li>Tea
+    <ul>
+      <li>Black tea</li>
+      <li>Green tea
+        <ul>
+          <li>China</li>
+          <li>Africa</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Milk</li>
+</ul>
+​
+<div style="color:#0000FF">
+  <h3>这是一个在 div 元素中的标题。</h3>
+  <p>这是一个在 div 元素中的文本。</p>
+</div>
+
+<p>我的母亲有 <span style="color:blue">蓝色</span> 的眼睛。</p>
+
+<div id="header" style="background-color:#FFA500;">
+<h1 style="margin-bottom:0;">主要的网页标题</h1></div>
+ 
+<div id="menu" style="background-color:#FFD700;height:200px;width:100px;float:left;">
+<b>菜单</b><br>
+HTML<br>
+CSS<br>
+JavaScript</div>
+ 
+<div id="content" style="background-color:#EEEEEE;height:200px;width:400px;float:left;">
+内容在这里</div>
+ 
+<div id="footer" style="background-color:#FFA500;clear:both;text-align:center;">
+版权 © runoob.com</div>
+ 
+</div>
+
+<form action="">
+First name: <input type="text" name="firstname"><br>
+Last name: <input type="text" name="lastname">
+</form>
+​
+<p><b>注意：</b> 表单本身是不可见的。并且注意一个文本字段的默认宽度是20个字符。</p>
+​
+<form action="">
+Username: <input type="text" name="user"><br>
+Password: <input type="password" name="password"><br>
+<input type="submit" value="提交">
+</form>
+
+<p><b>注意：</b> 密码字段中的字符是隐藏的(显示为星号或圆圈)。</p>
+
+<form>
+<input type="radio" name="sex" value="male">Male<br>
+<input type="radio" name="sex" value="female">Female
+</form>
+<form>
+<input type="checkbox" name="vehicle" value="Bike">I have a bike<br>
+<input type="checkbox" name="vehicle" value="Car">I have a car 
+</form>
+
+<form action="">
+<select name="cars">
+<option value="volvo">Volvo</option>
+<option value="saab">Saab</option>
+<option value="fiat">Fiat</option>
+<option value="audi">Audi</option>
+</select>
+</form>
+
+<form action="">
+<input type="button" value="Hello world!">
+</form>
+
+<form action="demo-form.php">
+First name: <input type="text" name="FirstName" value="Mickey"><br>
+Last name: <input type="text" name="LastName" value="Mouse"><br>
+<input type="submit" value="提交">
+</form>
+​
+<p>点击"提交"按钮，表单数据将被发送到服务器上的“demo-form.php”。</p>
+​
+<iframe src="demo_iframe.htm" name="iframe_a"></iframe>
+<p><a href="http://www.runoob.com" target="iframe_a">RUNOOB.COM</a></p>
+​
+<p><b>注意：</b> 因为 a 标签的 target 属性是名为 iframe_a 的 iframe 框架，所以</p>
+
+<script>
+document.write("Hello World!")
+</script> 
+<noscript>抱歉，你的浏览器不支持 JavaScript!</noscript>
+document.write("<h1>这是一个标题</h1>");
+document.write("<p>这是一个段落。</p>");
+
+<h1>我的第一个 JavaScript </h1>
+<p id="demo">
+JavaScript 可以触发事件，就像按钮点击。</p>
+<script>
+function myFunction()
+{
+    document.getElementById("demo").innerHTML="Hello JavaScript!";
+}
+</script>
+<button type="button" onclick="myFunction()">点我</button><br>
+​
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
+您的浏览器不支持 HTML5 canvas 标签。
+</canvas>
+
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.fillStyle="#FF0000";
+ctx.fillRect(0,0,150,75);
+</script>
+
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.moveTo(0,0);
+ctx.lineTo(200,100);
+ctx.stroke();
+</script>
+
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.beginPath();
+ctx.arc(95,50,40,0,2*Math.PI);
+ctx.stroke();
+</script>
+
+<script>
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+
+// Create gradient
+var grd=ctx.createLinearGradient(0,0,200,0);
+grd.addColorStop(0,"red");
+grd.addColorStop(1,"white");
+
+// Fill with gradient
+ctx.fillStyle=grd;ctx.fillRect(10,10,150,80);
+</script><br>
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+   <polygon points="100,10 40,180 190,60 10,60 160,180"
+   style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;"/>
+</svg><br>
+
+      <math xmlns="http://www.w3.org/1998/Math/MathML">
+		
+         <mrow>			
+            <mrow>
+				
+               <msup>
+                  <mi>x</mi>
+                  <mn>2</mn>
+               </msup>
+					
+               <mo>+</mo>
+					
+               <mrow>
+                  <mn>4</mn>
+                  <mo>⁢</mo>
+                  <mi>x</mi>
+               </mrow>
+					
+               <mo>+</mo>
+               <mn>4</mn>
+					
+            </mrow>
+				
+            <mo>=</mo>
+            <mn>0</mn>
+				 
+         </mrow>
+      </math>
+	  
+<p>拖动 RUNOOB.COM 图片到矩形框中:</p>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<br>
+<img id="drag1" src="/images/logo.png" draggable="true" ondragstart="drag(event)" width="336" height="69">
+<br>
+
+<p id="demo">点击按钮获取您当前坐标（可能需要比较长的时间获取）：</p>
+<button onclick="getLocation()">点我</button><br>
+<script>
+var x=document.getElementById("demo");
+function getLocation()
+{
+    if (navigator.geolocation)
+    {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    else
+    {
+        x.innerHTML="该浏览器不支持获取地理位置。";
+    }
+}
+​
+function showPosition(position)
+{
+    x.innerHTML="纬度: " + position.coords.latitude + 
+    "<br>经度: " + position.coords.longitude; 
+}
+</script>
+
+<form action="demo-form.php">
+  选择你喜欢的颜色: <input type="color" name="favcolor"><br>
+  <input type="submit">
+</form>
+<form action="demo-form.php">
+  生日: <input type="date" name="bday">
+  <input type="submit">
+</form>
+<form action="demo-form.php">
+  E-mail: <input type="email" name="usremail">
+  <input type="submit">
+</form>
+<form action="demo-form.php">
+  数量 ( 1 到 5 之间): <input type="number" name="quantity" min="1" max="5">
+  <input type="submit">
+</form>
+<form action="demo-form.php">
+  Search Google: <input type="search" name="googlesearch"><br>
+  <input type="submit">
+</form>
+<form action="demo-form.php">
+  电话号码: <input type="tel" name="usrtel"><br>
+  <input type="submit">
+</form>
+<form action="demo-form.php">
+  添加你的主页: <input type="url" name="homepage"><br>
+  <input type="submit">
+</form>
+
+<form action="demo-form.php" method="get">
+<input list="browsers" name="browser">
+<datalist id="browsers">
+  <option value="Internet Explorer">
+  <option value="Firefox">
+  <option value="Chrome">
+  <option value="Opera">
+  <option value="Safari">
+</datalist>
+<input type="submit">
+</form>
+​
+<p><strong>注意:</strong> Internet Explorer 9（更早 IE 版本），Safari 不支持 datalist 标签。</p>
+​
+<form action="demo_keygen.php" method="get">
+  用户名: <input type="text" name="usr_name">
+  加密: <keygen name="security">
+  <input type="submit">
+</form>
+​
+<p><strong>注意:</strong> Internet Explorer 不支持 keygen 标签。</p>
+​
+<form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+<input type="range" id="a" value="50">100
++<input type="number" id="b" value="50">
+=<output name="x" for="a b"></output>
+</form>
+​
+<p><strong>注意:</strong>  Internet Explorer 不支持 output 标签。</p>
+
+<form action="demo-form.php" method="get">
+  First name: <input type="text" name="fname"><br>
+  Last name: <input type="text" name="lname"><br>
+  <input type="submit" value="提交">
+  <input type="submit" formmethod="post" formaction="demo-post.php" value="使用 POST 提交">
+</form>
+
+<p><strong>注意：</strong> Internet Explorer 9及更早 IE 版本不支持 input 标签的 formmethod 属性。</p>
+
+<nav>
+<a href="/html/">HTML</a> |
+<a href="/css/">CSS</a> |
+<a href="/js/">JavaScript</a> |
+<a href="/jquery/">jQuery</a>
+</nav>
+
+<article>
+  <header>
+    <h1>Internet Explorer 9</h1>
+    <p><time pubdate datetime="2011-03-15"></time></p>
+  </header>
+  <p> Windows Internet Explorer 9(缩写为 IE9 )是在2011年3月14日21:00发布的</p>
+</article>
+
+<p><button onclick="clickCounter()" type="button">点我！</button></p>
+<div id="result"></div>
+<p>点击该按钮查看计数器的增加。</p>
+<p>关闭浏览器选项卡(或窗口),重新打开此页面,计数器将重置。</p>
+
+<div id="status" name="status">状态信息</div>
+
+ <script src="demo_time.js">
+</script>
+<p id="timePara"><button onclick="getDateTime()">获取日期和时间</button></p>
+<p><img src="logo.png" width="336" height="69"></p>
+<p>尝试打开 <a href="tryhtml5_html_manifest.htm" target="_blank">这个页面</a>, 在离线的状态下重新载入这个页面，页面也可以访问。</p>
+
+
+<p>计数： <output id="result"></output></p>
+<button onclick="startWorker()">开始工作</button> 
+<button onclick="stopWorker()">停止工作</button>
+<p><strong>注意：</strong> Internet Explorer 9 及更早 IE 版本浏览器不支持 Web Workers.</p>
+<script>
+var w;
+​
+function startWorker() {
+    if(typeof(Worker) !== "undefined") {
+        if(typeof(w) == "undefined") {
+            w = new Worker("demo_workers.js");
+        }
+        w.onmessage = function(event) {
+            document.getElementById("result").innerHTML = event.data;
+        };
+    } else {
+        document.getElementById("result").innerHTML = "抱歉，你的浏览器不支持 Web Workers...";
+    }
+}
+​
+function stopWorker() 
+{ 
+    w.terminate();
+    w = undefined;
+}
+</script>
+<br>
+
+<object width="400" height="50" data="bookmark.swf"></object>
+<object width="100%" height="500px" data="snippet.html"></object><br>
+<object data="logo.png"></object><br>
+<embed width="400" height="50" src="bookmark.swf">
+<embed width="100%" height="500px" src="snippet.html">
+<embed src="logo.png"><br>
+
+<embed height="50" width="100" src="horse.mp3"><br>
+<object height="50" width="100" data="horse.mp3"></object><br>
+<audio controls>
+  <source src="horse.mp3" type="audio/mpeg">
+  <source src="horse.ogg" type="audio/ogg">
+  <embed height="50" width="100" src="horse.mp3">
+</audio><br>
+
+<embed src="intro.swf" width="200" height="200"><p>如果你无法看到该视频,那么可能你的电脑不支持该文件格式。</p>
+<object height="200" width="200" data="intro.swf"></object>
+<video width="320" height="240" controls autoplay>
+  <source src="movie.ogg" type="video/ogg">
+  <source src="movie.mp4" type="video/mp4">
+  <source src="movie.webm" type="video/webm">
+  <object data="movie.mp4" width="320" height="240">
+    <embed width="320" height="240" src="movie.swf">
+  </object>
+</video><br>
+
+</body>
+</html> 

@@ -1,0 +1,16 @@
+﻿<apps>
+   <app>
+     <id>1</id>
+     <name>google</name>
+     <version>2</version>
+   </app>
+   <app>
+     <id>2</id>
+     <name>facebook</name>
+     <version>4.6</version>
+   </app>
+   <app>
+     <id>3</id>
+     <name>baidu</name>
+     <version>3.04</version>
+   </app>   
